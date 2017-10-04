@@ -6,70 +6,29 @@
   </head>
   <body>
     <?php
-        $var1 = 8;
-        $var2 = 9;
+      $var1 = 7;
+      $var2 = 4;
+      $var3 = 7;
+      if ($var1 === $var2) {
+        echo "The First Conditional is True<br>";
+      } else {
+        echo "The First Conditional is False<br>";
+      }
+      if ($var1 > $var2) {
+        echo "The Second Conditional is True<br>";
+      } else {
+        echo "The Second Conditional is False<br>";
+      }
 
-        // $var1 = $var2;
+      // if, else and elseif
+      if ($var1 < $var3) {
+        echo "The Third Conditional is True<br>";
+      } elseif ($var1 <= $var3) {
+        echo "The Third Conditioanl&apos;s first elseif condition is true<br>";
+      } else {
+        echo "The Third Conditioanl is False<br>";
+      }
 
-        $var3 = 10;
-        $var4 = '10';
-
-        if ($var1 == $var2) {
-          echo "This if statement is true<br>";
-        }
-        if ($var3 === $var4) {
-          echo "This is second if statement<br>";
-        }
-
-        if ($var1 != $var2) {
-          echo "This is third if statement<br>";
-        }
-        if ($var3 !== $var4) {
-          echo "This is fourth if statement<br>";
-        }
-
-        if ($var1 > $var2) {
-          echo "This is fifth if statement<br>";
-        }
-
-        if ($var1 < $var2) {
-          echo "This is sixth if statememnt<br>";
-        }
-
-        if ($var1 <> $var2) {
-          echo "This is seventh if statement<br>";
-        }
-
-        if ($var3 <> $var4) {
-          echo "This is eighth if statement<br>";
-        }
-
-        if ($var1 >= $var2) {
-          echo "This is ninth if statement<br>";
-        }
-        if ($var1 <= $var2) {
-          echo "This is tenth if statement<br>";
-        }
-
-        // Logical Operators
-        if ($var1 ==  $var2 && $var3 == $var4) {
-          echo "This is eleventh if statement<br>";
-        }
-        if ($var1 ==  $var2 and $var3 == $var4) {
-          echo "This is twelfth if statement<br>";
-        }
-        if ($var1 ==  $var2 || $var3 == $var4) {
-          echo "This is thirteenth if statement<br>";
-        }
-        if ($var1 ==  $var2 or $var3 == $var4) {
-          echo "This is fourteenth if statement<br>";
-        }
-        if ($var1 ==  $var2 xor $var3 == $var4) {
-          echo "This is fifteenth if statement<br>";
-        }
-        if (!($var1 == $var2)) {
-          echo "This is sixteenth if statement<br>";
-        }
     ?>
   </body>
 </html>
