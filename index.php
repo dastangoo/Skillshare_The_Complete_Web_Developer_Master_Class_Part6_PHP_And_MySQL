@@ -6,24 +6,18 @@
   </head>
   <body>
     <?php
-      // For Loop
-      for ($i=1; $i < 10; $i++) {
-        echo "$i. This is the For Loop<br>";
+      function func1()
+      {
+        echo "This is coming form the Function<br>";
       }
-
-      // While Loop
-      $w = 1;
-      while ($w < 10) {
-        echo "$w. This is the While Loop<br>";
-        $w++;
-      }
-
-      // Do While Loop
-      $d = 1;
-      do {
-        echo "$d. This is the Do While Loop <br>";
-        $d++;
-      } while ($d < 10);
+      echo "A Simple Line<br>";
+      func1();
+      func1();
+      func1();
+    ?>
+    <p>This is the Simple Paragraph</p>
+    <?php
+      func1();
     ?>
   </body>
 </html>
