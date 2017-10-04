@@ -1,10 +1,20 @@
-<?php
-  // print "Hellow World";
-  // echo "Hello World";
-  // echo "1 + 2";
-  // echo 1 + 3;
-  // echo 3 - 1;
-  // echo 3 * 2;
-  echo 3 / 2;
-
-?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Learn PHP and MySQL</title>
+  </head>
+  <body>
+    <!-- HTML Comment-->
+    Hello World
+    <br>
+    <?php
+    // This is the Single Line Comment
+    # This is the Single Line Comment
+    /*
+      This is the
+      Multiline Comment 
+    */
+    echo "<br><h1>Hello World from PHP</h1>"; ?>
+  </body>
+</html>
