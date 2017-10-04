@@ -6,38 +6,24 @@
   </head>
   <body>
     <?php
-      $var1 = 7;
-      $var2 = 4;
-      $var3 = 13;
-
-      $str = "Jon Snow";
-
-      switch ($var3) {
-        case 7:
-          echo "The First Case is True<br>";
-          break;
-        case 6:
-          echo "The Secodn Case is True<br>";
-          break;
-        default:
-          echo "The Default Case is True<br>";
-          break;
+      // For Loop
+      for ($i=1; $i < 10; $i++) {
+        echo "$i. This is the For Loop<br>";
       }
 
-      switch ($str) {
-        case "Jon Snow":
-          echo "The First Case is True<br>";
-          break;
-        case "Arya":
-          echo "The Second Case is True<br>";
-          break;
-        case "Daenerys":
-          echo "The Thrid Case is True<br>";
-          break;
-        default:
-          echo "The Default Case is True<br>";
-          break;
+      // While Loop
+      $w = 1;
+      while ($w < 10) {
+        echo "$w. This is the While Loop<br>";
+        $w++;
       }
+
+      // Do While Loop
+      $d = 1;
+      do {
+        echo "$d. This is the Do While Loop <br>";
+        $d++;
+      } while ($d < 10);
     ?>
   </body>
 </html>
