@@ -20,7 +20,14 @@
     <div class="col-md-6">
       <a href="receiver.php" class="btn btn-success">Send data without Variable</a>
       <a href="receiver.php?var1=Batman" class="btn btn-success">Send data with Variable</a>
-      <a href="receiver.php?var2=Flash&var3=Wonder%20Woman" class="btn btn-success">Send data with Variable</a>      
+      <a href="receiver.php?var2=Flash&var3=Wonder%20Woman" class="btn btn-success">Send data with Variable</a>
+      <?php
+        // include "receiver.php";
+        // include_once "receive.php";
+        //require "receiver.php";
+        require_once "receiver.php";
+        // echo $str;
+      ?>
     </div>
   </body>
 </html>

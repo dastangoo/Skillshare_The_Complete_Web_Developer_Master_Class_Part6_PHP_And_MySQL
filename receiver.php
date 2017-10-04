@@ -9,6 +9,6 @@
   } else {
     echo "This page has a variable named var2 but it&apos;s not declared in the URL<br>";
   }
-
+  $str = "This is a string";
 ?>
 This is the Receiver Page
