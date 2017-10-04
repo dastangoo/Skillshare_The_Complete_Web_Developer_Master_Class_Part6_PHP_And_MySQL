@@ -87,7 +87,17 @@
       // var_export($vegtables);
       // echo "<br>";
 
+      // Foreah Loop
 
+      foreach ($months as $month ) {
+        echo "$month <br>";
+      }
+
+      // For Loop
+      
+      for ($i=0; $i < count($fruits); $i++) {
+        echo "$fruits[$i] <br>";
+      }
 
 
 
