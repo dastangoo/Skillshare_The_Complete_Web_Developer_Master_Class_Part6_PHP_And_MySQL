@@ -6,46 +6,25 @@
   </head>
   <body>
     <?php
-      $e = 5;
-      $f = 9;
-      function func1($country)
+      function calc1()
       {
-        // echo "I live in $country<br>";
-        // echo "I live in ". $country . "<br>";
-        // return "I live in $country <br>";
-        $var1 = "I live in $country <br>";
-        return $var1;
-      }
-      function calc1($b, $c)
-      {
-        $a = $b + $c;
-        return $a;
-      }
-
-      function calc2()
-      {
-        // First Method
-
-        // global $e, $f;
-        // $d = $e * $f;
-
-        // Second Method
-        $d = $GLOBALS['e'] * $GLOBALS['f'];
-
-        
-        return $d;
+        static $a = 1;
+        // $a++;
+        // return $a++;
+        return $a++;
       }
     ?>
     <p>This is the Simple Paragraph</p>
     <?php
-      // func1('Kings Landing');
-      echo func1('Kings Landing');
-      echo func1('Vale ');
-      echo calc1(10, 64);
+      echo calc1();
       echo "<br>";
-      echo calc1(58, 89);
+      echo calc1();
       echo "<br>";
-      echo calc2()
+      echo calc1();
+      echo "<br>";
+      echo calc1();
+      echo "<br>";
+      echo calc1();
     ?>
   </body>
 </html>
