@@ -78,10 +78,11 @@
             </tr>
           </thead>
           <tbody>";
+        $c = 1;
         while ($rows = mysqli_fetch_assoc($run)) {
           echo "
             <tr>
-              <td>$rows[user_id]</td>
+              <td>$c</td>
               <td>$rows[name]</td>
               <td>$rows[email]</td>
               <td>$rows[password]</td>
@@ -89,6 +90,7 @@
               <td>$rows[date]</td>
             </tr>
           ";
+          $c++;
         }
         echo "
         </tbody>
@@ -99,20 +101,22 @@
 </html>
 <?php
   if (isset($_POST['submit'])) {
-    echo $username = mysqli_real_escape_string($conn, strip_tags($_POST['username']));
-    echo "<br>";
-    echo $password = mysqli_real_escape_string($conn, strip_tags($_POST['password']));
+    $username = mysqli_real_escape_string($conn, strip_tags($_POST['username']));
+    $password = mysqli_real_escape_string($conn, strip_tags($_POST['password']));
     if (isset($_POST['tel'])) {
-      echo "<br>";
-      echo $tel = mysqli_real_escape_string($conn, strip_tags($_POST['tel']));
+      $tel = mysqli_real_escape_string($conn, strip_tags($_POST['tel']));
     }
-    echo $email = mysqli_real_escape_string($conn, strip_tags($_POST['email']));
+    $email = mysqli_real_escape_string($conn, strip_tags($_POST['email']));
     echo "<br>";
+    $date = date('Y-m-d');
+
+    // NOTE: Single quotation for columns is required
+    $ins_sql = "INSERT INTO users (name, email, password, contact_number, date) VALUES ('$username', '$email', '$password', '$tel', '$date')";
+    if (mysqli_query($conn, $ins_sql)) {?>
+      <script type="text/javascript">
+        window.location = "index.php"
+      </script>
+      <?php
+    }
   }
-
-  $date = date('Y-m-d');
-
-  // NOTE: Single quotation for columns is required
-  $ins_sql = "INSERT INTO users (name, email, password, contact_number, date) VALUES ('$username', '$email', '$password', '$tel', '$date')";
-  $run = mysqli_query($conn, $ins_sql);
 ?>
