@@ -41,6 +41,42 @@
     </div>
 
     <div class="container">
+      <?php
+        if (isset($_GET['edit_id'])) {
+          $sql = "SELECT * FROM users WHERE user_id = '$_GET[edit_id]'";
+          $run = mysqli_query($conn, $sql);
+          while ($rows = mysqli_fetch_assoc($run)) {
+            $username = $rows['name'];
+            $password = $rows['password'];
+            $email = $rows['email'];
+            $tel = $rows['contact_number'];
+          }
+          ?>
+          <h2 class="col-md-offset-3 col-md-6">Edit user</h2>
+          <form class="col-md-offset-2 col-md-6" method="post">
+            <div class="form-group">
+              <label for="username">User Name</label>
+              <input type="text" class="form-control" id="edit_username" name="edit_username" value=<?= $username ?>>
+            </div>
+            <div class="form-group">
+              <label for="username">Password</label>
+              <input type="password" class="form-control" id="edit_password"  name="edit_password" value=<?= $password ?>>
+            </div>
+            <div class="form-group">
+              <label for="username">Emaild Address</label>
+              <input type="email" class="form-control" id="edit_email" name="edit_email" value=<?= $email ?>>
+            </div>
+            <div class="form-group">
+              <label for="username">Contact Number</label>
+              <input type="tel" class="form-control" id="edit_tel" name="edit_tel" value=<?= $tel ?>>
+            </div>
+            <div class="form-group">
+              <input type="submit" id="edit_user" class="form-control btn btn-primary" name="edit_user" value="Done Editing">
+              <input type="hidden" name="edit_user_id" value=<?= $_GET['edit_id'] ?>>
+            </div>
+          </form>
+      <?php } else {
+      ?>
       <h2 class="col-md-offset-3 col-md-6">Insert new users</h2>
       <form class="col-md-offset-2 col-md-6" method="post">
         <div class="form-group">
@@ -60,10 +96,10 @@
           <input type="tel" class="form-control" id="tel" placeholder="Insert contact number here" name="tel">
         </div>
         <div class="form-group">
-          <input type="submit" id="submit" class="form-control btn btn-danger" name="submit">
+          <input type="submit" id="submit" class="form-control btn btn-primary" name="submit" value="Submit">
         </div>
       </form>
-      <?php
+    <?php }
         $sql = "SELECT * FROM users";
         $run = mysqli_query($conn, $sql);
         echo "<table class='table table-bordered table-striped table-hover'>
@@ -91,7 +127,7 @@
               <td>$rows[contact_number]</td>
               <td>$rows[date]</td>
               <td>
-                <a href href='#' class='btn btn-primary'>Edit</a>
+                <a href='index.php?edit_id=$rows[user_id]' class='btn btn-primary'>Edit</a>
               </td>
               <td>
                 <a href='index.php?del_id=$rows[user_id]' class='btn btn-danger'>Delete</a>
@@ -108,6 +144,7 @@
   </body>
 </html>
 <?php
+  // Inserting New User
   if (isset($_POST['submit'])) {
     $username = mysqli_real_escape_string($conn, strip_tags($_POST['username']));
     $password = mysqli_real_escape_string($conn, strip_tags($_POST['password']));
@@ -127,6 +164,8 @@
       <?php
     }
   }
+
+  // Deleting An Existing User
   if (isset($_GET['del_id'])) {
     $del_sql = "DELETE from users WHERE user_id = '$_GET[del_id]'";
     if (mysqli_query($conn, $del_sql)) {?>
@@ -135,5 +174,14 @@
       </script>
     <?php
     }
+  }
+
+
+  // Updating An Existing User
+  if (isset($_POST['edit_user'])) {
+    $edit_username = mysqli_real_escape_string(strip_tags($_POST['edit_username']));
+    $edit_password = mysqli_real_escape_string(strip_tags($_POST['edit_password']));
+    $edit_email = mysqli_real_escape_string(strip_tags($_POST['edit_email']));
+    $edit_tel = mysqli_real_escape_string(strip_tags($_POST['edit_tel']));
   }
 ?>
