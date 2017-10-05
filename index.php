@@ -75,6 +75,8 @@
               <th>Password</th>
               <th>Contact Number</th>
               <th>Date</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>";
@@ -88,6 +90,12 @@
               <td>$rows[password]</td>
               <td>$rows[contact_number]</td>
               <td>$rows[date]</td>
+              <td>
+                <a href href='#' class='btn btn-primary'>Edit</a>
+              </td>
+              <td>
+                <a href='index.php?del_id=$rows[user_id]' class='btn btn-danger'>Delete</a>
+              </td>
             </tr>
           ";
           $c++;
@@ -117,6 +125,15 @@
         window.location = "index.php"
       </script>
       <?php
+    }
+  }
+  if (isset($_GET['del_id'])) {
+    $del_sql = "DELETE from users WHERE user_id = '$_GET[del_id]'";
+    if (mysqli_query($conn, $del_sql)) {?>
+      <script type="text/javascript">
+        window.location = "index.php"
+      </script>
+    <?php
     }
   }
 ?>
