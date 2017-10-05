@@ -179,9 +179,18 @@
 
   // Updating An Existing User
   if (isset($_POST['edit_user'])) {
-    $edit_username = mysqli_real_escape_string(strip_tags($_POST['edit_username']));
-    $edit_password = mysqli_real_escape_string(strip_tags($_POST['edit_password']));
-    $edit_email = mysqli_real_escape_string(strip_tags($_POST['edit_email']));
-    $edit_tel = mysqli_real_escape_string(strip_tags($_POST['edit_tel']));
+    $edit_username = mysqli_real_escape_string($conn, strip_tags($_POST['edit_username']));
+    $edit_password = mysqli_real_escape_string($conn, strip_tags($_POST['edit_password']));
+    $edit_email = mysqli_real_escape_string($conn, strip_tags($_POST['edit_email']));
+    $edit_tel = mysqli_real_escape_string($conn, strip_tags($_POST['edit_tel']));
+    $edit_user_id = mysqli_real_escape_string($conn, strip_tags($_POST['edit_user_id']));
+
+    $edit_sql = "UPDATE users SET name = '$edit_username', password = '$edit_password', email = '$edit_email', contact_number = '$edit_tel' WHERE user_id = '$edit_user_id'";
+    if (mysqli_query($conn, $edit_sql)) { ?>
+      <script type="text/javascript">
+        window.location = "index.php"
+      </script>
+    <?php
+    }
   }
 ?>
